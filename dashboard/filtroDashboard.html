@@ -1,0 +1,52 @@
+
+<div class="login-form" ng-controller="filtroDashboardCtrl">
+
+        <ons-toolbar>
+            <div  class="left">
+                <ons-back-button>Voltar</ons-back-button>
+            </div>
+            <div class="center">
+                  Filtro
+            </div>
+          
+        </ons-toolbar>
+
+        
+        <form name="filtroForm" novalidate="" ng-submit="filtro(filtroForm)"> 
+            <ons-list>
+                <ons-list-header>Ano</ons-list-header>
+                
+                <ons-list-item>
+        
+                         <input 
+                            type="number" 
+                            inputmode="numeric" 
+                            pattern="[0-9]*"
+                            name="anoVencimento" 
+                            class="text-input--underbar" 
+                            placeholder="Informe o ano para filtro" 
+                            value="{{filtro.anoVencimento}}" 
+                            ng-maxlength="4"
+                            ng-minlength="4"
+                            ng-class="{ 'has-errors' : filtroForm.anoVencimeto.$invalid, 'no-errors' : filtroForm.anoVencimeto.$valid}"
+                            ng-messages-include="error/error-list.html"
+                   
+                            ng-model="filtro.anoVencimento" 
+                            required>
+                
+                       
+                        <div class="error-container" ng-show="filtroForm.anoVencimento.$error" ng-messages="filtroForm.anoVencimento.$error" ng-messages-include="error/error-list.html">
+                        </div> 
+                   
+                </ons-list-item> 
+                         
+            </ons-list>
+              
+              <br>
+              <br>
+              
+              <button class="button button--large--cta" type="submit" cg-busy="{promise:changePromise,message:'Aplicando...', backdrop:false, templateUrl:'loading.html'}">Aplicar Filtro</button>
+       
+        </form>
+
+</div>

@@ -1,0 +1,121 @@
+
+<div ng-controller="listaCategoriaCtrl">
+     
+    <ons-toolbar>
+        
+            <div  class="left">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>
+            <div class="center">
+                  <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Pesquisar" ng-model="search" ng-change="searchCategoria()">
+            </div>
+          <div class="right">
+                <ons-toolbar-button ng-click="menu.toggleMenu()">
+                    <ons-icon icon="filter" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+                <ons-toolbar-button ng-click="myNavigator.setActiveTab(1)">
+                    <ons-icon icon="plus" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+               </div>
+         
+        </ons-toolbar>
+
+        <div cg-busy="{promise:searchPromise,message:'Carregando lista de Categorias'}"></div>
+        
+                
+             <ons-carousel swipeable fullscreen auto-scroll overscroll var="carousel" style="top: 20px">
+            
+           
+                <ons-carousel-item>
+                
+                    <div align="center">
+                       <div class="stage">
+                          <div class="swipe">
+                            
+                            <i class="fa fa-long-arrow-left"></i>
+                            <i class="fa fa-hand-o-up"></i>
+                            Receitas
+                          </div> 
+                        </div>
+                    </div>
+                    <br>
+                    <ons-list>
+                        <ons-list-header>Despesas</ons-list-header>
+                    </ons-list>
+                
+                    
+                
+                    <ons-scroller>
+                 
+                        <ons-list>
+                         
+                         <ons-list-item modifier="chevron tappable" class="categoria" ng-repeat="item in _item | filter: {nomeCategoria: search, tipoCategoria: 'Despesas'}" ng-click="nav.pushPage('categoria/addCategoria.html', {param1: item.idCategoria})">
+                            <ons-row>
+                              <ons-col width="40px">
+                                    <ons-icon icon="fa fa-{{item.icone}}" fixed-width="false" class="categoria-image"></ons-icon>
+                              </ons-col>
+                              <ons-col class="categoria-name">
+                                <header>
+                                  <span>{{item.nomeCategoria}}</span>
+                                  
+                                </header>
+                                
+                              </ons-col>
+                            </ons-row>
+                         </ons-list-item>
+                        
+                        </ons-list>
+                    </ons-scroller>
+                </ons-carousel-item>
+    
+                <ons-carousel-item>
+                
+                    <div align="center">
+                       <div class="stage">
+                          <div class="swipe">
+                            Despesas
+                            <i class="fa fa-hand-o-up"></i>
+                            <i class="fa fa-long-arrow-right"></i>
+                            
+                          </div> 
+                        </div>
+                    </div>
+    
+                    <br>
+    
+                     <ons-list>
+                        <ons-list-header>Receitas</ons-list-header>
+                    </ons-list>
+                
+                    
+                 <ons-scroller  infinit-scroll-enable="true">
+                 
+                    <ons-list>
+                     <ons-list-item modifier="chevron tappable" class="categoria" ng-repeat="item2 in _item | filter: {nomeCategoria: search, tipoCategoria: 'Receitas'}" ng-click="nav.pushPage('categoria/addCategoria.html', {param1: item2.idCategoria})">
+                        <ons-row>
+                          <ons-col width="40px">
+                                <ons-icon icon="fa fa-{{item2.icone}}" fixed-width="false" class="categoria-image"></ons-icon>
+                          </ons-col>
+                          <ons-col class="categoria-name">
+                            <header>
+                              <span>{{item2.nomeCategoria}}</span>
+                              
+                            </header>
+                            
+                          </ons-col>
+                        </ons-row>
+                      </ons-list-item>
+                    
+                    </ons-list>
+                 </ons-scroller>
+                </ons-carousel-item>
+                
+            </ons-carousel>    
+       
+</div>
+
+<style>
+    
+   
+    
+</style>

@@ -1,0 +1,190 @@
+<div class="login-form" ng-controller="Lancamento">
+
+        <ons-toolbar>
+          <div  class="left">
+            <div ng-show="lancamento.idLancamento==0">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>          
+            <div ng-show="lancamento.idLancamento!=0">
+                <ons-back-button modifier="chevron"></ons-back-button>
+            </div>
+          </div>
+            
+          <div class="center">
+            {{titulo}}
+          </div>
+        
+         <div class="right" ng-show="lancamento.idLancamento!=0">
+            
+                <ons-toolbar-button ng-click="confirm(lancamento.idLancamento)">
+                    <ons-icon icon="a fa-trash-o" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+          </div> 
+          
+        </ons-toolbar>
+
+    <ons-list>
+            <ons-list-header>Receita</ons-list-header>
+    </ons-list>
+    
+    <br><br>
+      
+    <div cg-busy="{promise:findPromise,message:'Carregando Lancamento...', backdrop:false}"></div>
+      
+   
+    <form name="lancamentoAddForm" novalidate="" ng-submit="addLancamento(lancamentoAddForm)"> 
+ 
+        
+ 
+ 
+       <input type="hidden" ng-model="lancamento.idLancamento" value="{{lancamento.idLancamento}}">
+
+    <ons-list>
+            <ons-list-header>Descrição do Lançamento</ons-list-header>
+    </ons-list>
+    
+    
+       <input 
+            type="text" 
+            name="descricaoLancamento" 
+            class="text-input--underbar" 
+            placeholder="Descrição da receita" 
+            value="{{lancamento.descricaoLancamanto}}" 
+            ng-class="{ 'has-errors' : lancamentoAddForm.descricaoLancamento.$invalid, 'no-errors' : lancamentoAddForm.descricaoLancamento.$valid}"
+            ng-messages-include="error/error-list.html"
+            ng-maxlength="200"
+            ng-model="lancamento.descricaoLancamento" required>
+       
+       <div class="error-container" ng-show="lancamentoAddForm.descricaoLancamento.$error" ng-messages="lancamentoAddForm.descricaoLancamento.$error" ng-messages-include="error/error-list.html">
+       </div> 
+       
+       <br>
+       
+    <ons-list>
+            <ons-list-header>Valor do Lançamento</ons-list-header>
+    </ons-list>
+    
+        <input 
+         type="text" 
+         name="valorLancamento"
+         class="text-input--underbar" 
+         placeholder="Valor da receita" 
+         value="{{lancamento.valorLancamento}}"
+         ng-class="{ 'has-errors' : lancamentoAddForm.valorLancamento.$invalid, 'no-errors' : lancamentoAddForm.valorLancamento.$valid}"
+         ng-messages-include="error/error-list.html"
+         ng-maxlength="13"
+         ng-model="lancamento.valorLancamento" money required>
+       
+        <div class="error-container" ng-show="lancamentoAddForm.valorLancamento.$error" ng-messages="lancamentoAddForm.valorLancamento.$error" ng-messages-include="error/error-list.html">
+        </div>
+    
+           
+    <br>
+  
+   <ons-list>
+        <ons-list-header>Data de Vencimento</ons-list-header>
+    </ons-list>
+ 
+    
+        <input 
+        type="text" 
+        name="dataVencimento" 
+        class="text-input--underbar" 
+        placeholder="Vencimento" 
+        ng-click="getDateVencimento()" 
+        ng-class="{ 'has-errors' : lancamentoAddForm.dataVencimento.$invalid, 'no-errors' : lancamentoAddForm.dataVencimento.$valid}"
+        ng-messages-include="error/error-list.html"
+        value="{{lancamento.dataVencimento}}"
+        ng-model="lancamento.dataVencimento" required readonly>
+   
+        <div class="error-container" ng-show="lancamentoAddForm.dataVencimento.$error" ng-messages="lancamentoAddForm.dataVencimento.$error" ng-messages-include="error/error-list.html">
+        </div> 
+  
+   <br>
+  
+       <ons-list>
+    
+            <ons-list-header>Status</ons-list-header>
+    
+            <ons-list-item modifier="tappable" >
+              <label class="radio-button radio-button--list-item">
+                <input type="radio" name="tipoStatus" ng-model="lancamento.tipoStatus" value="Em aberto" ng-checked="lancamento.tipoStatus == 'Em aberto'">
+                <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+                Em aberto
+              </label>
+            </ons-list-item>
+    
+            <ons-list-item modifier="tappable" >
+              <label class="radio-button radio-button--list-item">
+                <input type="radio" name="tipoStatus" ng-model="lancamento.tipoStatus" ng-checked="lancamento.tipoStatus == 'Recebido'" value="Recebido">
+                <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+                Recebido
+              </label>
+            </ons-list-item>
+    
+          </ons-list>
+      
+    <br>
+    
+    <div ng-show="lancamento.tipoStatus == 'Recebido'">
+    <ons-list>
+            <ons-list-header>Data de Pagamento</ons-list-header>
+    </ons-list>
+    </div>
+    
+        <input 
+         ng-show="lancamento.tipoStatus == 'Pago'"
+        type="text" 
+        name="dataPagamento" 
+        class="text-input--underbar" 
+        placeholder="Data do pagamento" 
+        ng-click="getDatePagamento()" 
+        ng-class="{ 'has-errors' : lancamentoAddForm.dataPagamento.$invalid, 'no-errors' : lancamentoAddForm.dataPagamento.$valid}"
+        ng-messages-include="error/error-list.html"
+        value="{{lancamento.dataPagamento}}"
+        ng-model="lancamento.dataPagamento" 
+        ng-required="lancamento.tipoStatus == 'Pago'" readonly>
+   
+        <div class="error-container" ng-show="lancamentoAddForm.dataPagamento.$error" ng-messages="lancamentoAddForm.dataPagamento.$error" ng-messages-include="error/error-list.html">
+        </div> 
+           
+  
+    <br>
+    
+       <ons-list>
+
+        <ons-list-header>Selecione uma Categoria</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="nav.pushPage('lancamento/gridCategoria.html', {tipoCategoria: 'Receitas'})">
+          <label class="radio-button radio-button--list-item">
+            <div>
+              <ons-icon icon="{{lancamento.icone}}"></ons-icon> {{lancamento.nomeCategoria}}
+            </div>      
+            <input 
+            name="idCategoria"
+            type="hidden" 
+            class="text-input--underbar"
+            ng-class="{ 'has-errors' : lancamentoAddForm.idCategoria.$invalid, 'no-errors' : lancamentoAddForm.idCategoria.$valid}"
+            ng-messages-include="error/error-list.html"
+            value="{{lancamento.idCategoria}}"
+            ng-model="lancamento.idCategoria" value="{{lancamento.idCategoria}}" required>
+          </label>
+        
+        </ons-list-item>
+      
+      </ons-list>
+       
+       <br>
+       
+        <div class="error-container" ng-show="lancamentoAddForm.idCategoria.$error" ng-messages="lancamentoAddForm.idCategoria.$error" ng-messages-include="error/error-list.html">
+       </div>
+    
+        <br><br>
+        
+        <button class="button button--large--cta" 
+                type="submit" 
+                cg-busy="{promise:changePromise,message:'Salvando...', backdrop:false, templateUrl:'loading.html'}">Salvar</button>
+   
+    </form> 
+    
+</div>

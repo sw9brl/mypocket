@@ -1,0 +1,52 @@
+<div ng-controller="listaContaCtrl">
+     
+    <ons-toolbar>
+        
+            <div  class="left">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>
+            <div class="center">
+                  <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Pesquisar" ng-model="search" ng-change="searchConta()">
+            </div>
+          <div class="right">
+                <ons-toolbar-button ng-click="menu.toggleMenu()">
+                    <ons-icon icon="filter" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+                
+               </div>
+         
+        </ons-toolbar>
+
+       <div cg-busy="{promise:searchPromise,message:'Carregando lista de Contas'}"></div>
+        
+        <ons-scroller  infinit-scroll-enable="true" can-load="true" on-scrolled="populateList()" threshold="20" style="height:100%">
+        <ons-list>
+         <ons-list-item modifier="tappable" class="categoria" ng-repeat="item in _item | filter: {$: search}" ng-click="confirmContaDefault(item, 'lancamento')">
+            
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" ng-model="item.idConta" value="{{item.idConta}}" ng-checked="item.idConta == {{idContaSelected}}">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            {{item.nomeConta}}
+          </label>
+        
+        </ons-list-item>
+       
+        </ons-list>
+        </ons-scroller>
+</div>
+
+<style>
+    
+   
+.item-label {
+  
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  line-height: 1;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+    
+</style>

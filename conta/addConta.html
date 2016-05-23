@@ -1,0 +1,181 @@
+<div class="login-form" ng-controller="Conta">
+
+        <ons-toolbar>
+          <div  class="left">
+            <div ng-show="conta.idConta==0">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>          
+            <div ng-show="conta.idConta!=0">
+                <ons-back-button modifier="chevron">Contas</ons-back-button>
+            </div>
+          </div>
+            
+          <div class="center">
+            {{titulo}}
+          </div>
+        
+         <div class="right" ng-show="conta.idConta!=0">
+            
+                <ons-toolbar-button ng-click="confirm(conta.idConta)">
+                    <ons-icon icon="a fa-trash-o" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+          </div> 
+          
+        </ons-toolbar>
+
+   
+      
+    <div cg-busy="{promise:findPromise,message:'Carregando Conta...', backdrop:true, templateUrl:'loadingModal.html'}"></div>
+      
+   
+    <form name="contaAddForm" novalidate="" ng-submit="addConta(contaAddForm)"> 
+ 
+       <input type="hidden" ng-model="conta.idConta" value="{{conta.idConta}}">
+       <input type="hidden" ng-model="conta.contaDefault" value="{{conta.contaDefault}}">
+       
+      <ons-list>
+
+            <ons-list-header>Nome da Conta</ons-list-header>
+        
+        </ons-list>
+
+      
+       <input 
+            type="text" 
+            name="nomeConta" 
+            class="text-input--underbar" 
+            placeholder="Nome da Conta" 
+            value="{{conta.nome}}" 
+            ng-class="{ 'has-errors' : contaAddForm.nomeConta.$invalid, 'no-errors' : contaAddForm.nomeConta.$valid}"
+            ng-messages-include="error/error-list.html"
+            ng-maxlength="100"
+            ng-model="conta.nome" required>
+       
+       <div class="error-container" ng-show="contaAddForm.nomeConta.$error" ng-messages="contaAddForm.nomeConta.$error" ng-messages-include="error/error-list.html">
+       </div> 
+       
+       <br>
+       
+       <ons-list>
+
+        <ons-list-header>Tipo de Conta</ons-list-header>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tipo" ng-model="conta.tipo" value="Cartao" ng-checked="conta.tipo == 'Cartao'">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Cartao
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tipo" ng-model="conta.tipo" ng-checked="conta.tipo == 'Dinheiro'" value="Dinheiro">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Dinheiro
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tipo" ng-model="conta.tipo" ng-checked="conta.tipo == 'Banco'" value="Banco">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Banco
+          </label>
+        </ons-list-item>
+
+      </ons-list>
+        
+      <br>
+    
+       <ons-list>
+
+        <ons-list-header>Selecione uma moeda</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="modal.show()">
+          <label class="radio-button radio-button--list-item">
+            <div></div>      
+            <input 
+            name="vlrMoeda"
+            type="text" 
+            class="text-input--underbar"
+            ng-class="{ 'has-errors' : contaAddForm.vlrMoeda.$invalid, 'no-errors' : contaAddForm.vlrMoeda.$valid}"
+            ng-messages-include="error/error-list.html"
+            ng-model="conta.moeda" value="{{p1}}" required readonly>
+          </label>
+        
+        </ons-list-item>
+      
+      </ons-list>
+       
+       <br>
+       
+        <div class="error-container" ng-show="contaAddForm.vlrMoeda.$error" ng-messages="contaAddForm.vlrMoeda.$error" ng-messages-include="error/error-list.html">
+       </div>
+       
+        <br>
+        
+        <ons-list>
+
+            <ons-list-header>Limite da Conta</ons-list-header>
+        
+        </ons-list>
+
+         <input 
+         type="text" 
+         name="vlrSaldo"
+         class="text-input--underbar" 
+         placeholder="Limite" 
+         value="{{conta.saldo}}"
+         ng-class="{ 'has-errors' : contaAddForm.vlrSaldo.$invalid, 'no-errors' : contaAddForm.vlrSaldo.$valid}"
+         ng-messages-include="error/error-list.html"
+         ng-maxlength="13"
+         ng-model="conta.saldo" money required>
+       
+        <div class="error-container" ng-show="contaAddForm.vlrSaldo.$error" ng-messages="contaAddForm.vlrSaldo.$error" ng-messages-include="error/error-list.html">
+        </div>
+       
+        <br><br>
+        
+        <button class="button button--large--cta" 
+                type="submit" 
+                cg-busy="{promise:changePromise,message:'Salvando...', backdrop:false, templateUrl:'loading.html'}">Salvar</button>
+   
+    </form> 
+    
+    
+    <ons-modal var="modal" hidden="true">
+       
+
+       <ons-list>
+
+        <ons-list-header>Selecione Moeda</ons-list-header>
+
+        <ons-list-item modifier="tappable" ng-click="modal.hide()">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" value="Real" ng-model="conta.moeda">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Real
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" ng-click="modal.hide()">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" value="Dolar" ng-model="conta.moeda">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Dolar
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" ng-click="modal.hide()">
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" value="Euro" ng-model="conta.moeda">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Euro
+          </label>
+        </ons-list-item>
+        
+      </ons-list>
+    </ons-modal>
+    
+</div>

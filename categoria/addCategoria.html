@@ -1,0 +1,133 @@
+<div class="login-form" ng-controller="Categoria">
+
+        <ons-toolbar>
+          <div  class="left">
+            <div ng-show="categoria.idCategoria==0">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>          
+            <div ng-show="categoria.idCategoria!=0">
+                <ons-back-button modifier="chevron"></ons-back-button>
+            </div>
+          </div>
+            
+          <div class="center">
+            {{titulo}}
+          </div>
+        
+         <div class="right" ng-show="categoria.idCategoria!=0">
+            
+                <ons-toolbar-button ng-click="confirm(categoria.idCategoria)">
+                    <ons-icon icon="a fa-trash-o" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+          </div> 
+          
+        </ons-toolbar>
+
+    <div cg-busy="{promise:findPromise,message:'Carregando Categoria...', backdrop:true, templateUrl:'loadingModal.html', minDuration:700}"></div>
+    
+    <form name="categoriaAddForm" novalidate="" ng-submit="addCategoria(categoriaAddForm)"> 
+ 
+       <input type="hidden" ng-model="categoria.idCategoria" value="{{categoria.idCategoria}}">
+
+        <ons-list>
+
+            <ons-list-header>Nome da Categoria</ons-list-header>
+        
+        </ons-list>
+
+       <input 
+            type="text" 
+            name="nomeCategoria" 
+            class="text-input--underbar" 
+            placeholder="Nome da Categoria" 
+            value="{{categoria.nome}}" 
+            ng-class="{ 'has-errors' : categoriaAddForm.nomeCategoria.$invalid, 'no-errors' : categoriaAddForm.nomeCategoria.$valid}"
+            ng-messages-include="error/error-list.html"
+            ng-maxlength="100"
+            ng-model="categoria.nome" required>
+       
+       <div class="error-container" ng-show="categoriaAddForm.nomeCategoria.$error" ng-messages="categoriaAddForm.nomeCategoria.$error" ng-messages-include="error/error-list.html">
+       </div>
+       
+       <br>
+       
+       <ons-list>
+
+        <ons-list-header>Tipo de Categoria</ons-list-header>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tipo" ng-model="categoria.tipo" value="Receitas" ng-checked="categoria.tipo == 'Receitas'">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Receitas
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tipo" ng-model="categoria.tipo" ng-checked="categoria.tipo == 'Despesas'" value="Despesas">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Despesas
+          </label>
+        </ons-list-item>
+
+      </ons-list>
+        
+        <br>
+        
+        <ons-list>
+
+        <ons-list-header>Selecione um ícone</ons-list-header>
+
+        <ons-list-item modifier="chevron" ng-click="modal.show()">
+          <label class="radio-button radio-button--list-item">
+            <div><ons-icon icon="{{p1}}"></ons-icon></div>      
+            <input 
+            name="vlrIcone"
+            type="hidden" 
+            class="text-input--underbar"
+            ng-class="{ 'has-errors' : categoriaAddForm.vlrIcone.$invalid, 'no-errors' : categoriaAddForm.vlrIcone.$valid}"
+            ng-messages-include="error/error-list.html"
+            ng-model="categoria.icone" value="{{p1}}" required readonly>
+          </label>
+        
+        </ons-list-item>
+      
+      </ons-list>
+       
+       <br>
+       
+        <div class="error-container" ng-show="categoriaAddForm.vlrIcone.$error" ng-messages="categoriaAddForm.vlrIcone.$error" ng-messages-include="error-list.html">
+       </div>
+       
+        <br>
+       
+        
+        <button class="button button--large--cta" 
+                type="submit" 
+                cg-busy="{promise:changePromise,message:'Salvando...', backdrop:false, templateUrl:'loading.html'}">Salvar</button>
+   
+    </form> 
+    
+    
+         <ons-modal var="modal" hidden="true">
+           
+    
+            <ons-scroller>
+                
+                <ons-list>
+                
+                 <ons-list-item modifier="tappable" ng-click="modal.hide()" class="categoria" ng-repeat="item in icones">
+                    <label class="radio-button radio-button--list-item">
+                        <input type="radio" value="{{item.name}}" ng-model="categoria.icone">
+                        <ons-icon icon="fa fa-{{item.name}}" fixed-width="false" class="categoria-image"></ons-icon>
+                    </label>
+                </ons-list-item>
+                    
+                </ons-list>
+             
+            </ons-scroller>
+          
+          </ons-modal>
+    
+</div>

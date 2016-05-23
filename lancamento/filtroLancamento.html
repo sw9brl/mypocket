@@ -1,0 +1,65 @@
+
+<div ng-controller="filtroLancamentoCtrl">
+
+        <ons-toolbar>
+            <div  class="left">
+                <ons-back-button>Voltar</ons-back-button>
+            </div>
+            <div class="center">
+                  Filtro
+            </div>
+          
+        </ons-toolbar>
+
+        
+        <form name="filtroForm" novalidate="" ng-submit="filtro(filtroForm)"> 
+            <ons-list>
+                <ons-list-header>Data de Vencimento</ons-list-header>
+                
+                <ons-list-item>
+        
+                    <ons-row>
+                            <input 
+                            type="text" 
+                            name="dtCadastroDe" 
+                            class="text-input--underbar" 
+                            placeholder="De" 
+                            ng-click="getDateDe()"
+                            value="{{filtro.dataCadastroDe | date : 'dd/MM/yyyy'}}"
+                            ng-class="{ 'has-errors' : filtroForm.dtCadastroDe.$invalid, 'no-errors' : filtroForm.dtCadastroDe.$valid}"
+                            ng-messages-include="error/error-list.html"
+                            
+                            ng-model="filtro.dataCadastroDe" required readonly>
+                       
+                            <div class="error-container" ng-show="filtroForm.dtCadastroDe.$error" ng-messages="filtroForm.dtCadastroDe.$error" ng-messages-include="error/error-list.html">
+                            </div> 
+                         </ons-row> 
+                        <ons-row>
+                            <input 
+                            type="text" 
+                            name="dtCadastroAte" 
+                            class="text-input--underbar" 
+                            placeholder="Até" 
+                            ng-click="getDateAte()" 
+                            ng-class="{ 'has-errors' : filtroForm.dtCadastroAte.$invalid, 'no-errors' : filtroForm.dtCadastroAte.$valid}"
+                            ng-messages-include="error/error-list.html"
+                            value="{{filtro.dataCadastroAte | date : 'dd/MM/yyyy'}}"
+                            ng-model="filtro.dataCadastroAte" required readonly>
+                       
+                            <div class="error-container" ng-show="filtroForm.dtCadastroAte.$error" ng-messages="filtroForm.dtCadastroAte.$error" ng-messages-include="error/error-list.html">
+                            </div> 
+                       
+                    </ons-row>
+                
+                </ons-list-item> 
+                         
+            </ons-list>
+              
+              <br>
+              <br>
+              
+              <button class="button button--large--cta" type="submit" cg-busy="{promise:changePromise,message:'Aplicando...', backdrop:false, templateUrl:'loading.html'}">Aplicar Filtro</button>
+       
+        </form>
+
+</div>

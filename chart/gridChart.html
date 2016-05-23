@@ -1,0 +1,165 @@
+<div ng-controller="ChartCtrl">
+     
+    <ons-toolbar>
+        
+            <div  class="left">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>
+            <div class="center">
+                Gráficos
+            </div>
+            <div class="right">
+                <ons-toolbar-button ng-click="nav.pushPage('chart/filtroChart.html')">
+                    <ons-icon icon="filter" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+               
+            </div>
+         
+        </ons-toolbar>
+
+
+    <div cg-busy="{promise:chartPromise,message:'Carregando Gráfico'}"></div>
+     
+                    
+        <div class="center">
+            <div class="button-bar" style="width:100%;">
+              <div class="button-bar__item">
+                 <input type="radio" name="segment" checked>
+                 <button class="button-bar__button">Conta: {{chartSumary.nomeConta}}</button>
+              </div>             
+            </div>
+            <div class="button-bar" style="width:100%;">
+             <div class="button-bar__item">
+                 <input type="radio" name="segment">
+                   <button class="button-bar__button">Ano: {{chartSumary.anoVencimento}}</button>
+              </div>
+            </div>
+        </div>
+        <br><br>
+        
+        <nvd3 options="options" 
+            data="data" 
+            events="events"></nvd3>
+        
+         <br><br>
+
+         <div class="center" ng-show="LineChartAtivo">
+            
+            <div class="button-bar" style="width:100%;">
+             <div class="button-bar__item">
+                 <input type="radio" name="segment" checked>
+                   <button class="button-bar__button">Mês: {{LineChartMes}}</button>
+              </div>
+            </div>
+        </div>
+        
+        <br>
+        <br>
+        
+         <ons-list>
+                <ons-list-header>Despesas por Categoria</ons-list-header>
+            
+                <ons-list-item>
+                    <div class="center">Previstas</div>
+                </ons-list-item>
+            </ons-list>
+
+
+                <nvd3 options="chart.Desp.options" 
+                    data="chart.Desp.data"></nvd3>
+            
+            <br>
+            <br>
+             <ons-list ng-if="chart.Desp.data.length">
+                <ons-list-header>Detalhes</ons-list-header>
+                <ons-list-item ng-repeat="listDesp in chart.Desp.data | orderBy:'key'">
+                    <ons-row>
+                        <ons-col>{{listDesp.key}}</ons-col>
+                        <ons-col>{{chartSumary.moeda}} {{listDesp.y | number:2}}</ons-col>
+                    </ons-row>
+                </ons-list-item>
+             </ons-list>
+            <br>
+            <br>
+            <ons-list>
+                <ons-list-item>
+                    <div class="center">Confirmadas</div>
+                </ons-list-item>
+            </ons-list>
+
+
+                <nvd3 options="chart.DespConf.options" 
+                    data="chart.DespConf.data" 
+                     
+                    ></nvd3>
+            
+            <br>
+            <br>
+             <ons-list ng-if="chart.DespConf.data.length">
+                <ons-list-header>Detalhes</ons-list-header>
+                <ons-list-item ng-repeat="listDespConf in chart.DespConf.data | orderBy:'key'">
+                    <ons-row>
+                        <ons-col>{{listDespConf.key}}</ons-col>
+                        <ons-col>{{chartSumary.moeda}} {{listDespConf.y | number:2}}</ons-col>
+                    </ons-row>
+                </ons-list-item>
+             </ons-list>
+            <br>
+            <br>
+            
+            <ons-list>
+                <ons-list-header>Receitas por categoria</ons-list-header>
+            
+                    <ons-list-item>
+                        <div class="center">Previstas</div>
+                    </ons-list-item>
+        
+            </ons-list>
+          
+                <nvd3 options="chart.Rec.options" 
+                    data="chart.Rec.data" 
+                    
+                    ></nvd3>
+    
+            <br>
+            <br>
+             <ons-list ng-if="chart.Rec.data.length">
+                <ons-list-header>Detalhes</ons-list-header>
+                <ons-list-item ng-repeat="listRec in chart.Rec.data | orderBy:'key'">
+                    <ons-row>
+                        <ons-col>{{listRec.key}}</ons-col>
+                        <ons-col>{{chartSumary.moeda}} {{listRec.y | number:2}}</ons-col>
+                    </ons-row>
+                </ons-list-item>
+             </ons-list>
+            <br>
+            <br>
+            
+            <ons-list>
+                <ons-list-item>
+                    <div class="center">Confirmadas</div>
+                </ons-list-item>
+            
+            </ons-list>
+          
+                <nvd3 options="chart.RecConf.options" 
+                    data="chart.RecConf.data" 
+                    
+                    ></nvd3>        
+        
+            <br>
+            <br>
+             <ons-list ng-if="chart.RecConf.data.length">
+                <ons-list-header>Detalhes</ons-list-header>
+                <ons-list-item ng-repeat="listRecConf in chart.RecConf.data | orderBy:'key'">
+                    <ons-row>
+                        <ons-col>{{listRecConf.key}}</ons-col>
+                        <ons-col>{{chartSumary.moeda}} {{listRecConf.y | number:2}}</ons-col>
+                    </ons-row>
+                </ons-list-item>
+             </ons-list>
+            <br>
+            <br>
+   
+
+</div>

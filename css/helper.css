@@ -1,0 +1,361 @@
+
+  /*--- BUTTONS ---*/
+  button {
+      cursor:pointer;
+      border:none;
+  }
+  .btn {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      width:100%;
+      padding:5px 2%;
+      display: block;
+  }
+  .btn.btn-medium {
+      padding:9.5px 2%;
+      font-size:14.5px;
+  }
+  .btn.btn-large {
+      padding:14px 2%;
+      font-size:17px;
+  }
+  .btn:hover {
+      opacity:0.8;
+      text-decoration: none;
+  }
+  .btn:focus {
+      box-shadow:1px 1px 4px 1px rgba(0, 0, 0, 0.1) inset;
+      text-decoration: none;
+  }
+  .btn.active {
+      box-shadow:0 0 0 200px rgba(0, 0, 0, 0.09) inset;
+      text-decoration: none;
+  }
+  .btn.active:hover {
+      opacity:1;
+  }
+  .btn.disabled {
+      cursor:none;
+  }
+  /*--- COLORS ---*/
+  .color-white {
+      color:#fff;
+  }
+  .color-black {
+      color:#333;
+  }
+  .color-muted {
+      color:rgba(0, 0, 0, 0.5);
+  }
+  .color-muted-inverse {
+      color:rgba(255, 255, 255, 0.5);
+  }
+  .color-error {
+      color:red;
+  }
+  .color-info {
+      color:#3F42F6;
+  }
+  .color-success {
+      color:#2AC171;
+  }
+  /*--- UTILS ---*/
+  /*float*/
+  .push-left {
+      float:left;
+  }
+  .push-right {
+      float:right;
+  }
+  .push-center {
+      margin:0 auto;
+      float: none;
+  }
+  /*align-x*/
+  .center-content {
+      text-align:center;
+  }
+  .left-content {
+      text-align:left;
+  }
+  .right-content {
+      text-align: right;
+  }
+  /*align-y*/
+  .v-top {
+      vertical-align: top;
+  }
+  .v-middle {
+      vertical-align: middle;
+  }
+  .v-bottom {
+      vertical-align: bottom;
+  }
+  .v-super {
+      vertical-align: super;
+  }
+  .v-text {
+      vertical-align: text-bottom;
+  }
+  .v-sub {
+      vertical-align: sub;
+  }
+  /*font*/
+  .font-light {
+      font-weight: lighter;
+  }
+  .font-medium {
+      font-weight: 500;
+  }
+  .font-bold {
+      font-weight:bold;
+  }
+  /*overlfow*/
+  .over-hidden {
+      overflow:hidden;
+  }
+  .over-y-hidden {
+      overflow-y:hidden;
+  }
+  .over-x-hidden {
+      overflow-x:hidden;
+  }
+  .over-scroll {
+      overflow:scroll;
+  }
+  .over-x-scroll {
+      overflow-x:scroll;
+  }
+  .over-y-scroll {
+      overflow-y:scroll;
+  }
+  /*text*/
+  .breakword {
+      word-break:break-all;
+  }
+  .lowercase {
+      text-transform: lowercase;
+  }
+  .uppercase {
+      text-transform:uppercase;
+  }
+  .capitalize {
+      text-transform: capitalize;
+  }
+  .ellips {
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+  }
+  /*layers*/
+  .layer1 {
+      z-index:1;
+  }
+  .layer2 {
+      z-index:2;
+  }
+  .layer3 {
+      z-index:3;
+  }
+  .layer4 {
+      z-index:4;
+  }
+  /*borders*/
+  .border {
+      -moz-box-shadow :0 0 0 1px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow :0 0 0 1px rgba(0, 0, 0, 0.1);
+      box-shadow :0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+  .border-info {
+      -moz-box-shadow :0 0 0 1px lightblue;
+      -webkit-box-shadow :0 0 0 1px lightblue;
+      box-shadow :0 0 0 1px lightblue;
+  }
+  .border-error {
+      -moz-box-shadow :0 0 0 1px lightred;
+      -webkit-box-shadow :0 0 0 1px lightred;
+      box-shadow :0 0 0 1px lightred;
+  }
+  .border-success {
+      -moz-box-shadow :0 0 0 1px lightgreen;
+      -webkit-box-shadow :0 0 0 1px lightgreen;
+      box-shadow :0 0 0 1px lightgreen;
+  }
+  /*radius*/
+  .radius3 {
+      -webkit-border-radius:3px;
+      -moz-border-radius:3px;
+      border-radius:3px;
+  }
+  .radius5 {
+      -webkit-border-radius:5px;
+      -moz-border-radius:5px;
+      border-radius:5px;
+  }
+  .radius10 {
+      -webkit-border-radius:10px;
+      -moz-border-radius:10px;
+      border-radius:10px;
+  }
+  .radius20 {
+      -webkit-border-radius:20px;
+      -moz-border-radius:20px;
+      border-radius:20px;
+  }
+  .radius-full {
+      -webkit-border-radius:100%;
+      -moz-border-radius:100%;
+      border-radius:100%;
+  }
+  /*vertical spacing*/
+  .separator3 {
+      min-height:3px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator5 {
+      min-height:5px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator10 {
+      min-height:10px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator15 {
+      min-height:15px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator30 {
+      min-height:30px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator50 {
+      min-height:50px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  .separator100 {
+      min-height:100px;
+      clear:both;
+      float:none;
+      width:100%;
+  }
+  /*--- BACKGROUNDS ---*/
+  .bg-black {
+      background-color: #222;
+  }
+  .bg-white {
+      background-color:#fff;
+  }
+  .bg-muted {
+      background-color: rgba(0, 0, 0, 0.15);
+  }
+  .bg-muted-inverse {
+      background-color:rgba(255, 255, 255, 0.75);
+  }
+  .bg-error {
+      background-color:red;
+  }
+  .bg-info {
+      background-color:#3F42F6;
+  }
+  .bg-success {
+      background-color:green;
+  }
+  /*NO!*/
+  .no-border {
+      border:none;
+  }
+  .no-radius {
+      -moz-border-radius:0 0 0 0;
+      -webkit-border-radius:0 0 0 0;
+      border-radius:0 0 0 0;
+  }
+  .no-bg {
+      background-color:none;
+  }
+  .no-padding {
+      padding: 0 0 0 0;
+  }
+  .no-margin {
+      margin: 0 0 0 0;
+  }
+  .no-list-style {
+      list-style-type: none;
+  }
+  .no-float {
+      float:none;
+  }
+  .no-height {
+      height :0;
+      max-height: 0;
+  }
+  .no-width {
+      width :0;
+      max-width: 0;
+  }
+  .no-opacity {
+      opacity:0;
+  }
+  /*badges*/
+  .badge {
+      padding :0 5px;
+      font-size: inherit;
+  }
+  .badge-medium {
+      padding:3px 8px;
+      font-size:15px;
+      font-size:inherit;
+  }
+  .badge-large {
+      padding:6px 15px;
+      font-size:16.5px;
+  }
+  /*--- RESPONSIVE ---*/
+  /*desktop*/
+  @media screen and (min-width:800px) {
+      .mobile, .tablet {
+          display: none;
+      }
+      .desktop {
+          display: inherit;
+      }
+  }
+  /*tablet*/
+  @media screen and (max-width:800px) {
+      .mobile, .desktop {
+          display: none;
+      }
+      .tablet {
+          display: inherit;
+      }
+      .line-tablet {
+          width:100%;
+          margin:0 auto;
+      }
+  }
+  /*mobile*/
+  @media screen and (max-width:400px) {
+      .tablet, .desktop {
+          display: none;
+      }
+      .mobile {
+          display:inherit;
+      }
+      .line-mobile {
+          width:100%;
+          margin:0 auto;
+      }
+  }

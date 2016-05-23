@@ -1,0 +1,24 @@
+<ons-toolbar>
+    
+  <div class="center">
+  
+    <img src="images/MyPocket.png" style="vertical-align:middle" width="40px" height="40px"/> MyPocket
+      
+  </div>
+
+</ons-toolbar>
+
+<div ng-controller="Setup">
+   <div class="center"> <ons-icon icon="fa-forward" style="vertical-align:middle" size="30px" fixed-width="true"></ons-icon> 2 de 2 </div>
+   <br>
+   <div style="text-align: center">
+    <h2>Criar Categorias</h2>
+        <br>
+        <h4>As categorias servem para agrupar os tipos de despesas e receitas, exemplo: Transporte, saúde, aluguel, etc</h4>
+        <br>
+        <ons-button
+            ng-click="addCategoria()"
+            cg-busy="{promise:categoriaPromise,message:'Criando...', backdrop:false, templateUrl:'loading.html'}">
+             <ons-icon icon="fa-caret-square-o-right " size="30px" fixed-width="true"></ons-icon> Criar Categorias</ons-button>
+   </div>
+</div>   

@@ -1,0 +1,410 @@
+p.list{
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+}
+
+p.item_name  {
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+p.item_image img{
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+    width:80px;
+    height:80px;
+}
+
+
+
+population-chart > svg {
+            height: calc(100% - 44px) !important;
+          }
+          .filter-input-container {
+            padding-left: 8px;
+            padding-right: 8px;
+            background-color: #47B8E4;
+            height: 44px;
+            line-height: 44px;
+          }
+          .year-select-container {
+            background-color: #47B8E4;
+          }
+
+
+.profile-card {
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 30px 0;
+  line-height: 1.4;
+  background-color: #33393c;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+.profile-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: black;
+  border 1px solid white;
+  box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 0px 0px;
+}
+
+.profile-name {
+  margin: 20px 0 0 0;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.profile-id {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.profile-desc {
+  font-size: 15px;
+  opacity: 0.6;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.info-col {
+  height: 70px;
+  line-height: 1;
+  padding: 12px 0 12px 4px;
+}
+
+.info-num {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.info-unit {
+  margin-top: 6px;
+  margin-botton:6px;
+  font-size: 14px;
+  opacity: 0.4;
+  text-align: center;
+}
+
+.tab {
+  line-height: 1;
+}
+
+.tab-icon {
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-label {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.person-list {
+  border-top: none;
+}
+
+.person {
+  line-height: 1;
+}
+
+.person-list-header {
+  opacity: 0.6;
+}
+
+.person-name {
+  line-height: 44px;
+}
+
+.person-image {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.login-form {
+  text-align: center;
+  width: 80%;
+  margin: 20px auto 0;
+}
+
+input[type=email], input[type=password] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+
+input[type=text] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+input[type=number] {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.money {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.login-button {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forgot-password {
+  display: block;
+  margin: 8px auto 0 auto;
+  font-size: 14px;
+}
+
+.error-container {
+  margin: 5px 0;
+}
+ 
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+ 
+.error i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+ 
+.has-errors {
+  border-bottom: 3px solid #B83E2C !important;
+}
+ 
+.no-errors {
+  border-bottom: 3px solid green !important;
+  
+  
+}
+
+.list-item-container {
+  line-height: 1;
+  padding: 15px 0px 15px 15px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+.name {
+  font-weight: 500;
+  line-height: 16px;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.tipoConta {
+  font-size: 14px;
+  opacity: 0.4;
+  margin-bottom: 6px;
+}
+
+.categoriaLancamento {
+  font-size: 14px;
+  opacity: 0.4;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+
+.milite {
+  line-height: 1.2;
+  font-size: 13px;
+}
+
+
+.item {
+  padding: 10px;
+  line-height: 1;
+  height: 80px;
+  
+}
+
+.categoria {
+  padding: 10px;
+  line-height: 1;
+  height: 60px;
+  
+}
+
+.item-thum {
+  background-color: #ccc;
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+}
+
+.item-nomeConta {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.item-saldo {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.3;
+  margin: 4px 0 0 0;
+  padding: 0 30px 0 0;
+  max-height: 20px;
+}
+
+.item-moeda {
+  font-size: 12px;
+  color: #999;
+  float: right;
+}
+
+
+.item-descricaoLancamento {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.item-vlrLancamento {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.3;
+  margin: 4px 0 0 0;
+  padding: 0 30px 0 0;
+  max-height: 20px;
+}
+
+.item-tipoStatus {
+  font-size: 12px;
+  color: #999;
+  float: right;
+}
+
+.item-tipoCategoria {
+  font-size: 12px;
+  color: #999;
+  float: middle;
+}
+
+@import "compass/css3";
+
+// SETTINGS -----------------
+
+$size : 80px;
+$swipe-colour : #000;
+$swipe-arrow-colour : lighten($swipe-colour, 35%);
+$swipe-hand-skew : 5deg;
+$swipe-distance : 0.1em;
+$swipe-animation-name : swipe;
+$swipe-animation-rotate-name : swipe-rotate;
+$swipe-animation-speed : 2700ms;
+$swipe-animation-delay : 250ms;
+$swipe-animation-timing-func : linear;
+
+// GENERAL ------------------
+
+.stage{
+  width: 100%;
+  padding: 7rem 2rem 2rem;
+  text-align: center;
+}
+
+*,
+*:after,
+*:before{
+ @include box-sizing(border-box);
+}
+
+// SWIPE ELEMENT ------------
+
+.swipe{
+  display: inline-block;
+  color: $swipe-colour;
+  
+  @include animation-name( $swipe-animation-name );
+  @include animation-duration( $swipe-animation-speed );
+  @include animation-delay( $swipe-animation-delay );
+  @include animation-timing-function( $swipe-animation-timing-func );
+  @include animation-iteration-count( infinite );
+  
+  .fa-long-arrow-left,
+  .fa-long-arrow-right{
+    font-size: 0.65em;
+    color: $swipe-arrow-colour;
+  }
+  
+  .fa-long-arrow-left{ 
+    @include transform( scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(1.25em) );
+  }
+  .fa-long-arrow-right{
+    @include transform( scaleX(0.75) skew(20deg) translateY(-0.9em) translateX(-0.95em) );
+  }
+  
+  .fa-hand-o-up{
+    @include transform( scaleY(1.2) );
+    @include animation-name( $swipe-animation-rotate-name );
+    @include animation-duration( $swipe-animation-speed );
+    @include animation-delay( $swipe-animation-delay );
+    @include animation-timing-function( $swipe-animation-timing-func );
+    @include animation-iteration-count( infinite );
+  }
+}
+
+// SWIPE ANIMATION ----------
+
+@include keyframes( $swipe-animation-name ){
+    0%{ @include transform( translateX(0) ); }
+    10%{ @include transform( translateX(-($swipe-distance)) ); }
+    20%{ @include transform( translateX($swipe-distance) ); }
+    30%{ @include transform( translateX(-($swipe-distance)) ); }
+    40%{ @include transform( translateX($swipe-distance) ); }
+    50%{ @include transform( translateX(0) ); }
+    100%{ @include transform( translateX(0) ); }
+}
+
+@include keyframes( $swipe-animation-rotate-name ){
+    0%{ @include transform( scaleY(1.2) skew(0) ); }
+    10%{ @include transform( scaleY(1.2) skew($swipe-hand-skew) ); }
+    20%{ @include transform( scaleY(1.2) skew(-$swipe-hand-skew) ); }
+    30%{ @include transform( scaleY(1.2) skew($swipe-hand-skew) ); }
+    40%{ @include transform( scaleY(1.2) skew(-$swipe-hand-skew) ); }
+    50%{ @include transform( scaleY(1.2) skew(0) ); }
+    100%{ @include transform( scaleY(1.2) skew(0) ); }
+}

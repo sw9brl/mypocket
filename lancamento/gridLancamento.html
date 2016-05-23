@@ -1,0 +1,108 @@
+
+<div ng-controller="listaLancamentoCtrl">
+     
+    <ons-toolbar>
+        
+            <div  class="left">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+            </div>
+            <div class="center">
+                  <input type="search" class="search-input" style="width: 96%; margin: 6px auto 6px auto;" placeholder="Pesquisar" ng-model="search" ng-change="searchLancamento()">
+            </div>
+          <div class="right">
+                <ons-toolbar-button ng-click="nav.pushPage('lancamento/filtroLancamento.html')">
+                    <ons-icon icon="filter" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+               
+               </div>
+         
+        </ons-toolbar>
+
+        
+       <div class="center">
+       
+        <div class="button-bar" style="width:100%;">
+          <div class="button-bar__item">
+             <input type="radio" name="segment-a" checked>
+             <button class="button-bar__button">Conta: {{nomeConta}}</button>
+          </div>
+          
+         
+        </div>
+        <div class="button-bar" style="width:100%;">
+         <div class="button-bar__item">
+             <input type="radio" name="segment-a" checked>
+               <button class="button-bar__button">Filtro: Vencimento entre {{lancamento.dataCadastroDe}} e {{lancamento.dataCadastroAte}}</button>
+          </div>
+        </div>
+       </div>
+
+       <div cg-busy="{promise:searchPromise,message:'Carregando Lancamentos'}"></div>
+        
+        <ons-scroller  infinit-scroll-enable="true" can-load="true" on-scrolled="populateList()" threshold="20" style="height:100%">
+        <ons-list>
+         <ons-list-item class="item" ng-repeat="item in _item | filter: {$: search}" >
+            
+                 <ons-carousel swipeable fullscreen auto-scroll overscrollable var="{{item.idLancamento}}">      
+                     <ons-carousel-item>
+                        <ons-list>
+                            <ons-list-item class="item" modifier="chevron tappable" ng-click="selectLancamento(item)">
+                                <ons-row>
+                          
+                                  <ons-col>
+                                    <header>
+                                      <span class="item-descricaoLancamento">{{item.descricaoLancamento}}</span>
+                                      
+                                      <span class="item-tipoStatus">{{item.tipoStatus}}</span>
+                                    </header>
+                                    
+                                    <div class="categoriaLancamento">
+                                            <i class="fa fa-map-marker"></i> {{item.nomeCategoria}}
+                                    </div>
+                                    
+                                    <span class="item-vlrLancamento">Valor: {{moeda}} {{ item.valorLancamento | number:2}}</span>
+                                    <span class="item-tipoCategoria"><span class="notification">{{item.tipoCategoria}}</span></span>
+                                  </ons-col>
+                                </ons-row>
+                            </ons-list-item>
+                        </ons-list>
+                      </ons-carousel-item>  
+                        <ons-carousel-item style="background-color:#ff5050">
+                            <ons-list class="item-label">
+                                <ons-list-item  modifier="tappable" ng-click="confirm(item.idLancamento)">
+                                       
+                                    <ons-icon icon="fa fa-trash-o"></ons-icon> Excluir Lancamento
+                                             
+                                </ons-list-item>
+                            </ons-list>
+                        </ons-carousel-item>
+                    </ons-carousel>
+                
+      </ons-list-item>
+       
+            <ons-list-item ng-show="isError">
+                
+            </ons-list-item>
+          
+         </ons-list>
+    </ons-scroller>
+    
+</div>
+
+<style>
+    
+   
+.item-label {
+  
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  line-height: 1;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+  
+    
+    
+</style>

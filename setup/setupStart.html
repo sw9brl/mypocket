@@ -1,0 +1,26 @@
+<ons-toolbar>
+    
+  <div class="center">
+  
+    <img src="images/MyPocket.png" style="vertical-align:middle" width="40px" height="40px"/> MyPocket
+      
+  </div>
+
+</ons-toolbar>
+
+<div ng-controller="Setup">
+             <div style="text-align: center">
+                <h2>Seja Bem Vindo</h2>
+                <br>
+                <h4>Falta pouco para usar o seu gestor financeiro</h4>
+                
+                <h6>Controle suas despesas e receitas de forma rápida na ponta de seus dedos</h6>
+                <br>
+             
+                <ons-button 
+                    ng-click="setupNavigator.pushPage('setup/setupConta.html')">
+                    <ons-icon icon="fa-caret-square-o-right " size="30px" fixed-width="true"></ons-icon> Iniciar Setup
+                </ons-button>
+            
+            </div>
+</div>

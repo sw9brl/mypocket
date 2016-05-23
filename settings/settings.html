@@ -1,0 +1,72 @@
+<div  ng-controller="ConfigCtrl">
+
+        <ons-toolbar>
+        
+          <div  class="left">
+                <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+          </div>
+            
+          <div class="center">
+            Configuração
+          </div>
+          
+        </ons-toolbar>
+
+   
+    <div cg-busy="{promise:findPromise,message:'Carregando Configuração...', backdrop:true, templateUrl:'loadingModal.html'}"></div>
+      
+   
+    <form name="configAddForm" novalidate="" ng-submit="changeConfig(configAddForm)"> 
+ 
+       <input type="hidden" ng-model="config.idConfiguracao" value="{{config.idConfiguracao}}">
+       
+       
+       <ons-list>
+
+        <ons-list-header>Aparência</ons-list-header>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tema" ng-model="config.tema" value="blue-basic-theme" ng-checked="config.tema == 'blue-basic-theme'">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Azul
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tema" ng-model="config.tema" ng-checked="config.tema == 'dark-theme'" value="dark-theme">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Preto
+          </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tema" ng-model="config.tema" ng-checked="config.tema == 'purple-theme'" value="purple-theme">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Roxo
+          </label>
+        </ons-list-item>
+        
+        <ons-list-item modifier="tappable" >
+          <label class="radio-button radio-button--list-item">
+            <input type="radio" name="tema" ng-model="config.tema" ng-checked="config.tema == 'sunshine-theme'" value="sunshine-theme">
+            <div class="radio-button__checkmark radio-button--list-item__checkmark"></div>
+            Solar
+          </label>
+        </ons-list-item>
+
+
+      </ons-list>
+        
+        <br>
+        
+        <button class="button button--large--cta" 
+                type="submit" 
+                cg-busy="{promise:changePromise,message:'Salvando...', backdrop:false, templateUrl:'loading.html'}">Salvar</button>
+   
+    </form> 
+    
+    
+</div>
